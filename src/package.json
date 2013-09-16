@@ -1,0 +1,45 @@
+{
+  "name": "accessibility-tool",
+  "description": "",
+  "version": "0.1.0",
+  "homepage": "https://github.com/marcysutton/accessibility-tool",
+  "author": {
+    "name": "Marcy Sutton",
+    "url": "http://marcysutton.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/marcysutton/accessibility-tool.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/marcysutton/accessibility-tool/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "coffee-script": "~1.6.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-sass": "~0.5.0",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-livereload": "~0.1.2",
+    "grunt-contrib-clean": "~0.5.0",
+    "connect-livereload": "~0.3.0",
+    "grunt-open": "~0.2.2",
+    "grunt-contrib-jasmine": "~0.5.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "readmeFilename": "README.md"
+}
