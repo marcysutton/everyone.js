@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 		
 		coffee: {
 			options: {
-				bare: true
+				bare: false
 			},
 			compile: {
 				expand: 'yes',
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
 			}
 		},
 		clean: {
-			all: ['<%= globalConfig.temp %>', '<%= globalConfig.dist%>']
+			all: ['<%= globalConfig.temp %>', '<%= globalConfig.dist %>']
 		},
 		connect: {
 			options: {
