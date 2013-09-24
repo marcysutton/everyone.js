@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 	    src: '',
 	    temp: '.tmp/',
 	    dist: '../public/',
-	    scripts: OUTPUT_PATH + '/_ui/js/',
+	    scripts: 'js/',
 	    views: OUTPUT_PATH
 	}
 	
@@ -33,8 +33,8 @@ module.exports = function(grunt) {
 			},
 			compile: {
 				expand: 'yes',
-				cwd: 'coffeescript/',
-				src: ['**'],
+				cwd: 'coffeescript',
+				src: ['**/*'],
 				dest: '<%= globalConfig.scripts %>',
 				ext: '.js',
 				filter: 'isFile'
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			coffee: {
-				files: ['coffeescript/*.coffee'],
+				files: ['coffeescript/**/*.coffee'],
 				tasks: 'coffee'
 			},
 			livereload: {

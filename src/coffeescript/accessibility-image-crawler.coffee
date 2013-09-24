@@ -1,3 +1,5 @@
+cheerio = require('cheerio')
+
 config = 
 	passingColor: 'green'
 	warningColor: 'orange'
@@ -10,11 +12,12 @@ kickoff = ->
 	
 	for image in images
 		
-		# if image is missing alt, add border
 		altAttr = image.getAttribute 'alt'
 		
+		# if image has empty alt, add warning
 		addWarning image if altAttr == ''
 		
+		# if image is missing alt, add error
 		addError image if altAttr == null
 		
 
