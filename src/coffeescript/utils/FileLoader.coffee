@@ -3,30 +3,32 @@
 fs = require 'fs'
 lazy = require "lazy"
 
+require('events').EventEmitter
+
 class FileLoaderUtility
   
   fileInputArr: []
   
-  constructor: (file) ->
-    console.log 'init FileLoader'
-    
-    lineCounter = 0
-
+  tasks: []
+  
+  constructor: (file, tasks) ->
     self = this
+    
+    @tasks = tasks
+    
+    lineCounter = 1
     
     new lazy(fs.createReadStream(file))
     .on 'end', ->
-      self.processLines()
+      self.parseComplete()
     .lines
-    .forEach (line) ->
-      self.fileInputArr.push line.toString()
-    
-  processLines: ->   
-    self = this 
-    this.fileInputArr.forEach (value, index) ->
-      self.printLine value, index
+    .forEach (line) ->   
+      self.tasks.forEach (task) ->
+        task.analyzeLine lineCounter, line.toString()      
+      lineCounter++
   
-  printLine: (value, index) ->
-    console.log "line #{index}: #{value}"
-
+  parseComplete: ->
+    @tasks.forEach (task) ->
+      task.parseComplete()
+    
 exports.FileLoaderUtility = FileLoaderUtility

@@ -2,6 +2,9 @@ FileLoader = require './utils/FileLoader'
 
 argv = require('optimist').argv
 
+Images = require './Images'
+Forms = require './Forms'
+
 if(argv.h || argv.help)
 	help = "usage: loadFile.js [-h] [--help] [file]"
 	
@@ -11,4 +14,9 @@ if(argv.h || argv.help)
 
 strInputFile = argv._[0]
 
-fileLoader = new FileLoader.FileLoaderUtility strInputFile
+# init tasks
+imgAnalyzer = new Images.ImgAnalyzer
+inputAnalyzer = new Forms.InputAnalyzer
+
+# init file loader and provide analysis tasks
+fileLoader = new FileLoader.FileLoaderUtility strInputFile, [imgAnalyzer, inputAnalyzer]
